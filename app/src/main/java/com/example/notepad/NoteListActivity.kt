@@ -1,5 +1,6 @@
 package com.example.notepad
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,7 +31,17 @@ class NoteListActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if(view.tag != null) {
-            Log.i("no activity", "note")
+            //Log.i("no activity", "note")
+            showNoteDetail(view.tag as Int)
         }
+    }
+
+    fun showNoteDetail(noteIndex: Int) {
+        val note = notes[noteIndex]
+
+        val intent = Intent(this, NoteDetailActivity::class.java)
+        intent.putExtra(NoteDetailActivity.EXTRA_NOTE, note)
+        intent.putExtra(NoteDetailActivity.EXTRA_NOTE_INDEX, noteIndex)
+        startActivity(intent)
     }
 }
