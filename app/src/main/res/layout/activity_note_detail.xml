@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NoteDetailActivity">
+
+    <androidx.appcompat.widget.ActionMenuView
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@android:attr/actionBarSize"
+        app:title="M2i Notepad"
+        />
     <EditText
         android:hint="Titre de ma note"
         android:layout_width="match_parent"
